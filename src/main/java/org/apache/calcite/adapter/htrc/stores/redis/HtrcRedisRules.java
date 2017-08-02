@@ -5,23 +5,27 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import org.apache.calcite.adapter.java.JavaTypeFactory;
 import org.apache.calcite.plan.Convention;
 import org.apache.calcite.plan.RelOptRule;
 import org.apache.calcite.plan.RelOptRuleCall;
 import org.apache.calcite.plan.RelOptUtil;
 import org.apache.calcite.plan.RelTraitSet;
 import org.apache.calcite.rel.RelNode;
+import org.apache.calcite.rel.convert.ConverterRule;
 import org.apache.calcite.rel.logical.LogicalFilter;
+import org.apache.calcite.rel.logical.LogicalProject;
 import org.apache.calcite.rel.type.RelDataType;
 import org.apache.calcite.rex.RexCall;
 import org.apache.calcite.rex.RexInputRef;
 import org.apache.calcite.rex.RexNode;
+import org.apache.calcite.rex.RexVisitorImpl;
 import org.apache.calcite.runtime.PredicateImpl;
 import org.apache.calcite.sql.SqlKind;
 import org.apache.calcite.sql.validate.SqlValidatorUtil;
-import org.apache.calcite.util.Pair;
 
 import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 public class HtrcRedisRules {
 
@@ -29,6 +33,69 @@ public class HtrcRedisRules {
 	static List<String> redisFieldNames(final RelDataType rowType) {
 		return SqlValidatorUtil.uniquify(rowType.getFieldNames(), SqlValidatorUtil.EXPR_SUGGESTER, true);
 	}
+	
+
+	public static class RexToRedisTranslator extends RexVisitorImpl<String> {
+		List<String> inFields;
+		private final JavaTypeFactory typeFactory;
+		protected RexToRedisTranslator(JavaTypeFactory typeFactory, List<String> inFields) {
+			super(true);
+			this.typeFactory = typeFactory;
+			this.inFields = inFields;
+		}
+
+		@Override
+		public String visitInputRef(RexInputRef inputRef) {
+			return inFields.get(inputRef.getIndex());
+		}
+	}
+	
+	
+	abstract static class RedisConverterRule extends ConverterRule {
+	    protected final Convention out;
+	    public RedisConverterRule(
+	            Class<? extends RelNode> clazz,
+	            String description) {
+	          this(clazz, Predicates.<RelNode>alwaysTrue(), description);
+	    }
+	    public <R extends RelNode> RedisConverterRule(
+	            Class<R> clazz,
+	            Predicate<? super R> predicate,
+	            String description) {
+	          super(clazz, predicate, Convention.NONE, HtrcRedisRel.CONVENTION, description);
+	          this.out = HtrcRedisRel.CONVENTION;
+	    }
+	}
+	
+	private static class RedisProjectRule extends RedisConverterRule {
+		public static final RedisProjectRule INSTANCE = new RedisProjectRule();
+		private RedisProjectRule() {
+			super(LogicalProject.class, "RedisProjectRule");
+		}
+
+	    @Override 
+	    public boolean matches(RelOptRuleCall call) {
+	        LogicalProject project = call.rel(0);
+	        for (RexNode e : project.getProjects()) {
+	          if (!(e instanceof RexInputRef)) {
+	            return false;
+	          }
+	        }
+
+	        return true;
+	      }
+	    
+		@Override
+		public RelNode convert(RelNode rel) {
+		      final LogicalProject project = (LogicalProject) rel;
+//		      System.out.println("CassandraProjectRule Matches: " + project.getInput());
+		      final RelTraitSet traitSet = project.getTraitSet().replace(out);
+		      return new HtrcRedisProject(project.getCluster(), traitSet,
+		          convert(project.getInput(), out), project.getProjects(),
+		          project.getRowType());
+		}
+	}
+	
 	  private static class RedisFilterRule extends RelOptRule {
 		    private static final Predicate<LogicalFilter> PREDICATE =
 		        new PredicateImpl<LogicalFilter>() {

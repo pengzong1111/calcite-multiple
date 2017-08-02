@@ -231,6 +231,8 @@ public class HtrcCassandraFilter extends Filter implements HtrcCassandraRel {
 	      case INPUT_REF:
 	        final RexInputRef left1 = (RexInputRef) left;
 	        String name = fieldNames.get(left1.getIndex());
+	        System.out.println("name: " + name);
+	        System.out.println("rightLiteral: " + literalValue(rightLiteral));
 	        return translateOp2(op, name, rightLiteral);
 	      case CAST:
 	        // FIXME This will not work in all cases (for example, we ignore string encoding)

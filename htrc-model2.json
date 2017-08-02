@@ -16,10 +16,10 @@
  */
 {
   "version": "1.0",
-  "defaultSchema": "htrcCassandra",
+  "defaultSchema": "htrcSchema",
   "schemas": [
     {
-      "name": "htrcCassandra",
+      "name": "htrcSchema",
       "tables": [
         {
           "name": "testtable",
@@ -49,9 +49,8 @@
           "type": "custom",
           "factory": "org.apache.calcite.adapter.htrc.stores.redis.HtrcRedisTableFactory",
           "operand": {
-            "zk": "localhost:9983",
-            "collection": "htrcTestCollection",
-            "flavor": "translatable"
+            "host": "crow.soic.indiana.edu",
+            "port": "8080"
           }
         },
         

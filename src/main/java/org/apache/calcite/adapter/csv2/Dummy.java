@@ -35,8 +35,10 @@ public class Dummy {
 	//	String sql = "select * from \"testtable\" c where c.\"country\" = \'china\'";
 	//	String sql = "select \"price\", \"name\" from \"htrcTestCollection\" where \"name\"=\'item_18\' limit 2";
 	//	String sql = "select \"price\", \"name\" from \"htrcTestCollection\" limit 2";
-		String sql = "select c.\"id\", d.\"id\", \"country\", \"NAME\" from \"testtable\" c JOIN \"depts\" d ON c.\"id\" = d.\"id\"";
+	//	String sql = "select c.\"id\", d.\"id\", \"country\", \"NAME\" from \"testtable\" c JOIN \"depts\" d ON c.\"id\" = d.\"id\"";
 	//	String sql = "select c.\"id\", d.\"id\", \"price\", \"name\" from \"htrcTestCollection\" c JOIN \"depts\" d ON c.\"id\" = d.\"id\"";
+	//	String sql = "select * from \"redis\" where \"id\"=\'02\'";
+		String sql = "select c.\"id\", d.\"id\", \"country\", \"right\" from \"testtable\" c JOIN \"redis\" d ON c.\"id\" = d.\"id\"";
 		Properties info = new Properties();
 	//	info.put("model", "model-with-view.json");
 	//	info.put("model", "smart2.json");

@@ -63,7 +63,7 @@ public class HtrcRedisToEnumerableConverter extends ConverterImpl implements Enu
 
 	@Override
 	public Result implement(EnumerableRelImplementor implementor, Prefer pref) {
-		System.out.println("~~~~CassandraToEnumerableConverter : implement: ");
+		System.out.println("~~~~RedisToEnumerableConverter : implement: ");
 		final BlockBuilder list = new BlockBuilder();
 		HtrcRedisRel.Implementor htrcRedisRelImplementor = new HtrcRedisRel.Implementor();
 		htrcRedisRelImplementor.visitChild(0, getInput());
