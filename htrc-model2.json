@@ -1,0 +1,71 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to you under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+{
+  "version": "1.0",
+  "defaultSchema": "htrcCassandra",
+  "schemas": [
+    {
+      "name": "htrcCassandra",
+      "tables": [
+        {
+          "name": "testtable",
+          "type": "custom",
+          "factory": "org.apache.calcite.adapter.htrc.stores.cassandra.HtrcCassandraTableFactory",
+          "operand": {
+            "host": "localhost",
+            "keyspace": "htrccorpus2",
+            "columnfamily": "testtable",
+            "flavor": "translatable"
+          }
+        },
+        
+        {
+          "name": "htrcTestCollection",
+          "type": "custom",
+          "factory": "org.apache.calcite.adapter.htrc.stores.solr.SolrTableFactory",
+          "operand": {
+            "zk": "localhost:9983",
+            "collection": "htrcTestCollection",
+            "flavor": "translatable"
+          }
+        },
+        
+        {
+          "name": "redis",
+          "type": "custom",
+          "factory": "org.apache.calcite.adapter.htrc.stores.redis.HtrcRedisTableFactory",
+          "operand": {
+            "zk": "localhost:9983",
+            "collection": "htrcTestCollection",
+            "flavor": "translatable"
+          }
+        },
+        
+        {
+          "name": "depts",
+          "type": "custom",
+          "factory": "org.apache.calcite.adapter.csv2.Csv2Test1TableFactory",
+          "operand": {
+            "file": "C:\\zong\\apache-calcite-1.12.0-src\\apache-calcite-1.12.0-src\\example\\htrc\\sales\\DEPTS.csv",
+            "flavor": "TRANSLATABLE"
+          }
+        }
+        
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+// ------------------------------------------------------------------
+// Transitive dependencies of this project determined from the
+// maven pom organized by organization.
+// ------------------------------------------------------------------
+
+htrc sources
+
+
+From: 'an unknown organization'
+  - FindBugs-jsr305 (http://findbugs.sourceforge.net/) com.google.code.findbugs:jsr305:jar:3.0.1
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Guava: Google Core Libraries for Java (https://github.com/google/guava/guava) com.google.guava:guava:bundle:19.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - opencsv (http://opencsv.sf.net) net.sf.opencsv:opencsv:jar:2.3
+    License: Apache 2  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Commons Compiler (http://docs.codehaus.org/display/JANINO/Home/commons-compiler) org.codehaus.janino:commons-compiler:jar:2.7.6
+    License: New BSD License  (http://dist.codehaus.org/janino/new_bsd_license.txt)
+  - Janino (http://docs.codehaus.org/display/JANINO/Home/janino) org.codehaus.janino:janino:jar:2.7.6
+    License: New BSD License  (http://dist.codehaus.org/janino/new_bsd_license.txt)
+
+From: 'FasterXML' (http://fasterxml.com/)
+  - Jackson-annotations (http://github.com/FasterXML/jackson) com.fasterxml.jackson.core:jackson-annotations:bundle:2.6.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Jackson-core (https://github.com/FasterXML/jackson-core) com.fasterxml.jackson.core:jackson-core:bundle:2.6.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - jackson-databind (http://github.com/FasterXML/jackson) com.fasterxml.jackson.core:jackson-databind:bundle:2.6.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'Google' (http://www.google.com/)
+  - Protocol Buffers [Core] (https://developers.google.com/protocol-buffers/protobuf-java/) com.google.protobuf:protobuf-java:bundle:3.1.0
+    License: New BSD license  (http://www.opensource.org/licenses/bsd-license.php)
+
+From: 'Julian Hyde' (http://www.hydromatic.net)
+  - Aggregate Designer Algorithm (http://github.com/julianhyde/aggdesigner/aggdesigner-algorithm) net.hydromatic:aggdesigner-algorithm:jar:6.0
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'QOS.ch' (http://www.qos.ch)
+  - SLF4J API Module (http://www.slf4j.org) org.slf4j:slf4j-api:jar:1.7.13
+    License: MIT License  (http://www.opensource.org/licenses/mit-license.php)
+
+From: 'The Apache Software Foundation' (http://www.apache.org/)
+  - Apache Commons Codec (http://commons.apache.org/proper/commons-codec/) commons-codec:commons-codec:jar:1.9
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Commons DBCP (http://commons.apache.org/dbcp/) commons-dbcp:commons-dbcp:jar:1.4
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Commons IO (http://commons.apache.org/io/) commons-io:commons-io:jar:2.4
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Commons Lang (http://commons.apache.org/lang/) commons-lang:commons-lang:jar:2.4
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Commons Logging (http://commons.apache.org/proper/commons-logging/) commons-logging:commons-logging:jar:1.1.3
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Commons Pool (http://commons.apache.org/pool/) commons-pool:commons-pool:jar:1.5.4
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Calcite Avatica (http://calcite.apache.org/avatica/avatica-core) org.apache.calcite.avatica:avatica-core:jar:1.9.0
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Calcite Avatica Metrics (http://calcite.apache.org/avatica/avatica-metrics) org.apache.calcite.avatica:avatica-metrics:jar:1.9.0
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache Commons Lang (http://commons.apache.org/proper/commons-lang/) org.apache.commons:commons-lang3:jar:3.2
+    License: The Apache Software License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache HttpClient (http://hc.apache.org/httpcomponents-client) org.apache.httpcomponents:httpclient:jar:4.5.2
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Apache HttpCore (http://hc.apache.org/httpcomponents-core-ga) org.apache.httpcomponents:httpcore:jar:4.4.4
+    License: Apache License, Version 2.0  (http://www.apache.org/licenses/LICENSE-2.0.txt)
+
+From: 'The Apache Software Foundation' (https://www.apache.org/)
+  - Calcite Core (https://calcite.apache.org/calcite-core) org.apache.calcite:calcite-core:jar:1.12.0
+    License: Apache License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+  - Calcite Linq4j (https://calcite.apache.org/calcite-linq4j) org.apache.calcite:calcite-linq4j:jar:1.12.0
+    License: Apache License, Version 2.0  (https://www.apache.org/licenses/LICENSE-2.0.txt)
+
+
+
+

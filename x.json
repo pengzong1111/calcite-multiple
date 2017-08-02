@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "defaultSchema": "CUSTOM_TABLE",
+  "schemas": [
+    {
+      "name": "CUSTOM_TABLE",
+      "tables": [        
+         {
+          "name": "ORDERS",
+          "type": "custom",
+          "factory": "org.apache.calcite.adapter.csv2.Csv2Test1TableFactory"
+        }
+      ]
+    }
+  ]
+}
